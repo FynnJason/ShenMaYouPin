@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <include layout="@layout/layout_home_top" />
+        <!--广告-->
+        <include layout="@layout/layout_home_banner" />
+        <!--菜单-->
+        <include layout="@layout/layout_home_menu" />
+        <!--新闻-->
+        <include layout="@layout/layout_home_news" />
+        <!--VIP广告图-->
+        <ImageView
+            android:id="@+id/iv_home_vip"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+        <!--分类导航-->
+        <include layout="@layout/layout_home_classify" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_home_banner" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_home_product_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/lt_look_more"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="@dimen/dp_10">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@color/Gray1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="查看更多相似商品"
+            android:textSize="@dimen/sp_14" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_weight="1"
+            android:background="@color/Gray1" />
+    </LinearLayout>
+</LinearLayout>
