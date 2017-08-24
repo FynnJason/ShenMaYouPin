@@ -5,10 +5,10 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="@dimen/dp_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_5">
 
         <TextView
             android:id="@+id/tv_store_left"
@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/attr_red_left_backgroud_seleted"
             android:padding="@dimen/dp_5"
-            android:text="产品商城" />
+            android:text="产品商城"
+            android:textColor="@color/white_to_red" />
 
         <TextView
             android:id="@+id/tv_store_right"
@@ -24,6 +25,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/attr_red_right_backgroud_seleted"
             android:padding="@dimen/dp_5"
-            android:text="积分商城" />
+            android:text="积分商城"
+            android:textColor="@color/white_to_red" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/store_contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 </LinearLayout>
