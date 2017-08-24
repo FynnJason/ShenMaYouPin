@@ -12,6 +12,6 @@ import com.youth.banner.loader.ImageLoader
  */
 class BannerImageLoader : ImageLoader() {
     override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
-        Glide.with(context).load(path).placeholder(R.mipmap.app_icon).crossFade(1000).into(imageView)
+        Glide.with(context).load(path).placeholder(R.mipmap.app_icon).crossFade(2000).into(imageView)
     }
 }

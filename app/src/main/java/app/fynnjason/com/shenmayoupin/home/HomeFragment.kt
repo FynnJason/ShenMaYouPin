@@ -3,16 +3,19 @@ package app.fynnjason.com.shenmayoupin.home
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import app.fynnjason.com.shenmayoupin.R
 import app.fynnjason.com.shenmayoupin.adapter.HomeClassifyAdapter
+import app.fynnjason.com.shenmayoupin.adapter.HomeProductAdapter
 import app.fynnjason.com.shenmayoupin.api.RequestNet
 import app.fynnjason.com.shenmayoupin.bean.HomeDataBean
 import app.fynnjason.com.shenmayoupin.utils.BannerImageLoader
 import com.bumptech.glide.Glide
+import com.scwang.smartrefresh.header.DeliveryHeader
 import com.youth.banner.Transformer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -33,10 +36,12 @@ class HomeFragment : Fragment() {
     val mRequestNet = RequestNet().getInstance()
     // 分类导航数据集合
     val classifyList = ArrayList<HomeDataBean.ResultDataBean.ClassifiedNavigationsBean>()
-    // 产品数据集合
-    val productList = ArrayList<HomeDataBean.ResultDataBean.RecommendProductsBean>()
     // 分类导航的适配器
     val classifyAdapter = HomeClassifyAdapter(classifyList)
+    // 产品数据集合
+    val productList = ArrayList<HomeDataBean.ResultDataBean.RecommendProductsBean>()
+    // 产品数据的适配器
+    val productAdapter = HomeProductAdapter(productList)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_home, container, false)
@@ -53,6 +58,19 @@ class HomeFragment : Fragment() {
         rv_home_classify.isNestedScrollingEnabled = false
         rv_home_classify.layoutManager = GridLayoutManager(context, 4)
         rv_home_classify.adapter = classifyAdapter
+        // 产品列表初始化
+        rv_home_product.isNestedScrollingEnabled = false
+        rv_home_product.layoutManager = LinearLayoutManager(context)
+        rv_home_product.adapter = productAdapter
+        // 刷新控件初始化
+        mRefresh.setRefreshHeader(DeliveryHeader(context))
+        mRefresh.setPrimaryColorsId(R.color.colorAccent)
+        mRefresh.setOnRefreshListener { refreshlayout ->
+            mRefresh.postDelayed({
+                refreshlayout.finishRefresh()
+                Toast.makeText(context, "刷新完成！", Toast.LENGTH_SHORT).show()
+            }, 2000)
+        }
     }
 
     /**
@@ -68,11 +86,20 @@ class HomeFragment : Fragment() {
                     configNews(result)
                     configVip(result)
                     configClassify(result)
+                    configProduct(result)
                 }, { error -> Toast.makeText(context, "网络请求失败", Toast.LENGTH_SHORT).show() })
     }
 
     /**
-     * 设置分类导航
+     * 设置产品列表
+     */
+    private fun configProduct(result: HomeDataBean) {
+        productList.addAll(result.resultData.recommendProducts)
+        productAdapter.notifyDataSetChanged()
+    }
+
+    /**
+     * 设置分类导航列表
      */
     private fun configClassify(result: HomeDataBean) {
         classifyList.addAll(result.resultData.classifiedNavigations)
@@ -83,7 +110,7 @@ class HomeFragment : Fragment() {
      * 设置会员广告
      */
     private fun configVip(result: HomeDataBean) {
-        Glide.with(context).load(result.resultData.vipExclusive).placeholder(R.mipmap.app_icon).crossFade(1000).into(iv_home_vip)
+        Glide.with(context).load(result.resultData.vipExclusive).placeholder(R.mipmap.app_icon).crossFade(2000).into(iv_home_vip)
     }
 
     /**
@@ -92,6 +119,7 @@ class HomeFragment : Fragment() {
     private fun configNews(result: HomeDataBean) {
         tv_home_news_1.setText(result.resultData.godHorses[0].title)
         tv_home_news_2.setText(result.resultData.godHorses[1].title)
+
     }
 
     /**

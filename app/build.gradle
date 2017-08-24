@@ -39,6 +39,8 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
 }
 
 repositories {
@@ -50,7 +52,7 @@ configurations.all {
         def requested = details.requested
         if (requested.group == 'com.android.support') {
             if (!requested.name.startsWith("multidex")) {
-                details.useVersion '25.3.0'
+                details.useVersion '25.3.1'
             }
         }
     }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -24,21 +25,15 @@
             <TextView
                 android:id="@+id/tv_home_news_1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12"/>
 
             <TextView
                 android:id="@+id/tv_home_news_2"
-                android:layout_marginTop="@dimen/dp_5"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12"/>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
