@@ -1,6 +1,9 @@
 package app.fynnjason.com.shenmayoupin.api
 
 import app.fynnjason.com.shenmayoupin.bean.HomeDataBean
+import app.fynnjason.com.shenmayoupin.bean.StoreProductBannerBean
+import app.fynnjason.com.shenmayoupin.bean.StoreProductInfoBean
+import app.fynnjason.com.shenmayoupin.bean.StoreProductTypeBean
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,6 +17,20 @@ import java.util.concurrent.TimeUnit
  * copyright：© 2017 Android.Own.
  */
 class RequestNet : ServiceApi {
+    override fun getProduct(page: Int, size: Int, type: Int): Observable<StoreProductInfoBean> {
+        return serviceApi.getProduct(page, size, type)
+    }
+
+
+    override fun getProductType(): Observable<StoreProductTypeBean> {
+        return serviceApi.getProductType()
+    }
+
+
+    override fun getProductBanner(): Observable<StoreProductBannerBean> {
+        return serviceApi.getProductBanner()
+    }
+
     val BASE_URL = "http://app.shenmayoupin.com/api/"
 
     override fun getHomeData(): Observable<HomeDataBean> {

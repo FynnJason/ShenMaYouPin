@@ -49,6 +49,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // 解决焦点
+        mBanner.setFocusable(true)
+        mBanner.setFocusableInTouchMode(true)
+        mBanner.requestFocus()
+
         initView()
         requestHomeData()
     }

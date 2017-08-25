@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/tv_balance"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:sLeftTextString="余额0元"
+        app:sLeftTvDrawableLeft="@drawable/ic_mine_mid_money"
+        app:sRightTextString="我要提现"
+        app:sRightTvDrawableRight="@drawable/ic_chevron_right_black">
+
+    </com.allen.library.SuperTextView>
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/tv_glod"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:sLeftTextString="金币0个"
+        app:sLeftTvDrawableLeft="@drawable/ic_mine_mid_money"
+        app:sRightTextString="金币商城"
+        app:sRightTvDrawableRight="@drawable/ic_chevron_right_black">
+
+    </com.allen.library.SuperTextView>
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/tv_orderform"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:sLeftTextString="我的订单"
+        app:sRightTextString="查看全部订单"
+        app:sRightTvDrawableRight="@drawable/ic_chevron_right_black">
+
+    </com.allen.library.SuperTextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/While"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_order_pay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_order_pay"
+            android:gravity="center"
+            android:text="待付款" />
+
+        <TextView
+            android:id="@+id/tv_order_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_order_send"
+            android:gravity="center"
+            android:text="待发货" />
+
+        <TextView
+            android:id="@+id/tv_order_recive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_order_recive"
+            android:gravity="center"
+            android:text="待收货" />
+
+        <TextView
+            android:id="@+id/tv_order_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_order_comment"
+            android:gravity="center"
+            android:text="待评价" />
+
+        <TextView
+            android:id="@+id/tv_order_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_order_service"
+            android:gravity="center"
+            android:text="售后" />
+    </LinearLayout>
+</LinearLayout>
